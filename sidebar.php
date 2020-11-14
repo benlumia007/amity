@@ -4,8 +4,8 @@
 Amity - sidebar.php
 ================================================================================================
 This is the most generic template file in a WordPress theme and is one of the requirements to 
-display widgets on the right side of the page. This is the post content sidebar that is assigned
-in the widget area in the customizer and widget area.
+display widgets on the bottom of the page. This is the footer sidebar that is assigned in the 
+widget area in the customizer and widget area.
 
 @package        Amity WordPress Theme
 @copyright      Copyright (C) 2016. Benjamin Lu

@@ -30,7 +30,7 @@ Table of Content
 function amity_custom_header_setup() {
     $args = array(
         // Text color and image (empty to use none).
-        'default-text-color'     => '000000',
+        'default-text-color'     => 'ffffff',
         'default-image'          => '',
 
         // Set height and width, with a maximum value for the width.
@@ -74,7 +74,7 @@ function amity_header_style() {
 	<?php else : ?>
             .site-title a,
             .site-description {
-                color: #<?php echo $text_color; ?>;
+                color: #<?php echo esc_html($text_color); ?>;
             }
 	<?php endif; ?>
 	</style>

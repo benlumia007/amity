@@ -54,7 +54,7 @@ function amity_enqueue_scripts_setup() {
     
     // Enable and Activate Navigation JavaScript for Amity.
     wp_enqueue_script('amity-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20160601', true);
-	wp_localize_script('amity-navigation', 'screenReaderText', array(
+	wp_localize_script('amity-navigation', 'amityscreenReaderText', array(
 		'expand'   => '<span class="screen-reader-text">' . __('expand child menu', 'amity') . '</span>',
 		'collapse' => '<span class="screen-reader-text">' . __('collapse child menu', 'amity') . '</span>',
 	));
@@ -90,7 +90,11 @@ function amity_theme_setup() {
         'primary-navigation'    => esc_html__('Primary Navigation', 'amity'),
     ));
     
+    // Enable and Activate Custom Background for Amity.
     add_theme_support('custom-background');
+    
+    // Enable and Activate Featured Image for Amity.
+    add_theme_support('post-thumbnails');
     
 }
 add_action('after_setup_theme', 'amity_theme_setup');

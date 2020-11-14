@@ -1,7 +1,7 @@
 <?php
 
 function amity_custom_styles_setup() {
-        $header_background = get_theme_mod('header_image');
+        $header_background = esc_url(get_theme_mod('header_image'));
 
         $custom_css = "
             .site-header.header-background-image {

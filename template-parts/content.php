@@ -14,6 +14,9 @@ content. This content.php is the main content that will be displayed.
 */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <div class="featured-image">
+        <?php the_post_thumbnail(); ?>
+    </div>
     <header class="entry-header">
         <?php the_title(sprintf('<h1 class="entry-title"><a href="%s">', esc_url(get_permalink())), '</a></h1>'); ?>
     </header>

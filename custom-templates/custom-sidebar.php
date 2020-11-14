@@ -16,7 +16,7 @@ of this theme. This also displays the navigation menu as well or any extra featu
 */
 ?>
 <?php get_header(); ?>
-    <div class="<?php echo get_theme_mod('amity_custom_layout_settings', 'default'); ?>">
+    <div class="<?php echo esc_attr(get_theme_mod('amity_custom_layout_settings', 'default')); ?>">
         <div id="content-area" class="content-area">
             <?php if (have_posts()) : ?>
                 <?php while (have_posts()) : the_post(); ?>

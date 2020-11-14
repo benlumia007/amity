@@ -2,8 +2,8 @@ Amity WordPress Theme
 ================================================================================================
 Contributor: benlumia007
 Tags: custom-background, custom-header, right-sidebar
-Requres at least: 4.4
-Tested up to: 4.4.4
+Requres at least: 4.5
+Tested up to: 4.6.1
 Stable tag: 0.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -53,12 +53,16 @@ Not Available At the Moment
 
 Changelog
 ================================================================================================
+Version: 0.0.3
+- Fixed Bugs
+- Minor Changes
+- Add New Tags
 
 Version: 0.0.2
-Rendered New CSS
+- Rendered New CSS
 
 Version: 0.0.1
-Initial Release
+- Initial Release
 
 
 Upgrade Notice
@@ -68,14 +72,16 @@ Not Available At the Moment
 
 Resources
 ================================================================================================
-Screenshot
-Copyright and Licensed as CC0 
-By Jeff Sheldon (https://unsplash.com/@ugmonk)
-https://hd.unsplash.com/photo-1415226181422-279a51ca056e
-
 Font Awesome by Dave Gandy - http://fontawesome.io
 Font Awesome licensed under SIL OFL 1.1 · Code licensed under MIT License
 Source: http://fortawesome.github.io/Font-Awesome/
 
-Open Sans (Apache License v3.00)
-https://www.fontsquirrel.com/fonts/open-sans
+Merriweather Sans (Google Font)
+Designer: Sorkin Type
+License: Sil Open Font License
+Source: https://fonts.google.com/specimen/Merriweather+Sans
+
+Sanchez (Google Font)
+Designer: Daniel Hernandez
+License: Sil Open Font License
+Source: https://fonts.google.com/specimen/Sanchez

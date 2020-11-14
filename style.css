@@ -2,13 +2,13 @@
 Theme Name: Amity
 Theme URI: https://www.lumiathemes.com/portfolio/amity/
 Author: Benjamin Lu
-Author URI: http://lumiathemes.com/
+Author URI: https://www.lumiathemes.com/
 Description: Amity is a responsive theme with smaller features as of right now. When this theme becomes more handy, this theme will have even more surprises.
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: left-sidebar, one-column, right-sidebar, two-columns, sticky-post, threaded-comments, translation-ready
+Tags: custom-background, custom-header, left-sidebar, one-column, right-sidebar, two-columns, theme-options, threaded-comments, translation-ready
 Text Domain: amity
-Version: 0.0.2
+Version: 0.0.3
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -521,7 +521,8 @@ textarea {
 ================================================================================================
 */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 300;
 }
 
 h1,
@@ -1491,26 +1492,6 @@ ol.children {
 26.0 - Section Area (About)
 ================================================================================================
 */
-.about-me {
-    padding-top: 6em;
-}
-.about-header {
-    text-align: center;
-}
-
-.about-title,
-.about-description {
-    margin: 0;
-    padding: 0;
-}
-
-.about-title {
-    font-size: 3em;
-}
-
-.about-description {
-    color: #999999;
-}
 
 /*
 ================================================================================================
@@ -1518,185 +1499,19 @@ ol.children {
 ================================================================================================
 */
 
-.portfolio {
-    padding-top: 6em;
-}
-
-.portfolio-header {
-    text-align: center;
-}
-
-.portfolio-title,
-.portfolio-description {
-    margin: 0;
-    padding: 0;
-}
-
-.portfolio-title {
-    font-size: 3em;
-}
-
-.portfolio-description {
-    color: #999999;
-}
-
-.default-grid {
-    margin: 1.250em 0;
-    padding: 0;
-}
-
-.default-grid ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    float: left;
-}
-
-.default-grid li {
-    list-style: none;
-    float: left;
-    margin: 0 .5% 3em .5%;
-    width: 32.33333333333333%;
-}
-
-.portfolio-caption {
-    background: #eeeeee;
-    font-size: 0.875em;
-    margin: 0;
-    padding: 0.313em;
-}
-
-.portfolio-caption {
-    text-align: center;
-}
-
-.portfolio-caption-title,
-.portfolio-caption-description {
-    margin: 0;
-    padding: 0;
-}
 /*
 ================================================================================================
 28.0 - Section Area (Blog)
 ================================================================================================
 */
-.latest {
-    padding-top: 6em;
-}
 
-.blog-title,
-.blog-description {
-    margin: 0;
-    padding: 0;
-}
-
-.blog-header {
-    text-align: center;
-} 
-
-.blog-content .entry-excerpt {
-    font-size: 0.9em;
-}
-
-
-.blog .blog-title {
-    font-size: 3em;
-}
-
-.blog-description {
-    color: #999999;
-}
 
 /*
 ================================================================================================
 29.0 - Section Area (Contact)
 ================================================================================================
 */
-.contact {
-    padding-top: 6em;
-}
 
-.contact-title,
-.contact-description {
-    margin: 0;
-    padding: 0;
-}
-
-.contact-description {
-    color: #999999;
-}
-
-.contact-header {
-    text-align: center;
-} 
-
-.contact-content {
-    margin-top: 2em;
-    text-align: center;
-}
-
-.contact-grid {
-    margin: 1.250em 0;
-    padding: 0;
-}
-
-.contact-grid ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.contact-grid li {
-    list-style: none;
-    float: left;
-    margin: 0 .8% 20px .8%;
-    width: 48.4%;
-}
-
-.contact-grid label {
-    font-family: 'Sanchez', serif;
-    font-size: 1.250em;
-}
-
-.contact-grid label span {
-    font-size: 0.8em;
-    margin: 0 0.4em;
-}
-
-.contact-message {
-    margin: 1em 0;
-}
-
-.contact-message label {
-    font-family: 'Sanchez', serif;
-    font-size: 1.250em;
-}
-
-.contact-message label span {
-    font-size: 0.8em;
-    margin: 0 0.4em;
-}
-
-.contact-submit input[type="submit"] {
-	display: inline-block;
-	margin: 0 auto;
-	padding: 11px 16px;
-	font-family: "Sanchez", serif;
-    font-size: 1em;
-	text-decoration: none;
-	border: 1px solid #c3c3c3;
-}
-
-.contact-submit input[type="submit"]:hover {
-	border-color: #000;
-    color: #000000;
-	border-width: 1px;
-	box-shadow: none;
-}
-
-div.wpcf7-response-output {
-    padding: 0.5em;
-}
 
 /*
 ================================================================================================
