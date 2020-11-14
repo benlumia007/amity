@@ -1,26 +1,38 @@
 <?php
 /*
 ================================================================================================
-Ecclesiastical - content.php
+Amity - content.php
 ================================================================================================
 This is the most generic template file in a WordPress theme and is one required files to display
 content. This content.php is the main content that will be displayed.
 
-@package        Ecclesiastical WordPress Theme
+@package        Amity WordPress Theme
 @copyright      Copyright (C) 2016. Benjamin Lu
 @license        GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
-@author         Benjamin Lu (http://ninjablume.com/contact/
-@since          0.0.1
+@author         Benjamin Lu (https://www.lumiathemes.com/)
 ================================================================================================
 */
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="entry-header">
-        <h1 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo (get_the_title()) ? get_the_title() : __('(No Title)', 'amity'); ?></a></h1>
+        <?php the_title(sprintf('<h1 class="entry-title"><a href="%s">', esc_url(get_permalink())), '</a></h1>'); ?>
     </header>
-     <div class="entry-content">
-        <?php the_content(); ?>
-        <?php wp_link_pages(); ?>
-         <?php the_tags(); ?>
-    </div>   
+    <div class="post-index-metadata">
+        <?php amity_index_entry_posted_on(); ?>
+    </div>
+    <div class="entry-excerpt">
+        <?php the_excerpt(); ?>
+        <?php if (!is_singular() || is_front_page()) { ?>
+            <div class="continue-reading">
+                <a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+                    <?php
+                        printf(
+                            wp_kses(__('Continue reading %s', 'amity'), array('span' => array('class' => array()))),
+                            the_title('<span class="screen-reader-text">"', '"</span>', false)
+                        );
+                    ?>
+                </a>
+            </div>
+        <?php } ?>
+    </div>
 </article>

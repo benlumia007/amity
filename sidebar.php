@@ -10,11 +10,10 @@ in the widget area in the customizer and widget area.
 @package        Amity WordPress Theme
 @copyright      Copyright (C) 2016. Benjamin Lu
 @license        GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
-@author         Benjamin Lu (http://ninjablume.com/contact/
-@since          0.0.1
+@author         Benjamin Lu (https://www.lumiathemes.com/)
 ================================================================================================
 */
 ?>
-<div id="widget-area" class="widget-area">
-    <?php dynamic_sidebar('post-content'); ?>
+<div id="widget-area" class="footer-area clearfix">
+    <?php dynamic_sidebar('footer-area'); ?>
 </div>

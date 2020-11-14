@@ -4,86 +4,116 @@
 Amity - customizer.php
 ================================================================================================
 This is the most generic template file in a WordPress theme and is one of the two required files 
-for a theme (the other being functions.php). This file is used to maintain the extra functionality
-and features for this theme. THe main file is the functions.php that contains the main functions
-and features for this theme.
+for a theme (the other style.css). The index.php template file is flexible. It can be used to 
+include all references to the header, content, widget, footer and any other pages created in 
+WordPress. Or it can be divided into modular template files, each taking on part of the workload. 
+If you do not provide other template files, WordPress may have default files or functions to 
+perform their jobs.
 
 @package        Amity WordPress Theme
 @copyright      Copyright (C) 2016. Benjamin Lu
 @license        GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
-@author         Benjamin Lu (http://ninjablume.com/contact/
+@author         Benjamin Lu (http://lumiathemes.com/)
 ================================================================================================
 */
 
 /*
 ================================================================================================
-Table of Contents
+Table of Content
 ================================================================================================
-1.0 - Theme Customization Setup
-2.0 - Theme Customization Validations
+ 1.0 - Customize Register (Setup)
+ 2.0 - Customize Register (Validation)
+ 3.0 - Customize Register (Preview)
 ================================================================================================
 */
 
 /*
 ================================================================================================
-1.0 - Theme Customization Setup
+ 1.0 - Customize Register (Setup)
 ================================================================================================
 */
-function amity_customizer_register_setup($wp_customize) {
-    $wp_customize->add_panel('amity_theme_options_setup_panel', array(
-        'title'         => esc_html__('Theme Options', 'amity'),
-        'description'   => '',
+function amity_customize_register_setup($wp_customize) {
+    // General Layout
+    $wp_customize->add_panel('amity_general_layout', array(
+        'title' => esc_html__('General Layout', 'amity'),
+        'description'   => __('This section is mainly for the blogs, you can choose either to have the sidebar on the left or right or default.', 'amity'),
         'priority'      => 5
     ));
     
-    $wp_customize->add_section('amity_theme_options_setup_section', array(
-        'title'     => esc_html__('FlexSlider', 'amity'),
-        'description'   => esc_html__('The FlexSlider is used to display featured images as a slider. 2000 x 500 is preferred.', 'amity'),
-        'priority'      => 5,
-        'panel'         => 'amity_theme_options_setup_panel'
+    $wp_customize->add_section('amity_blog_layout_options', array(
+        'title' => esc_html__('Blog Layout', 'amity'),
+        'description'   => __('This section is mainly for the blogs, you can choose either to have the sidebar on the left or right or default.', 'amity'),
+        'panel'         => 'amity_general_layout',
+        'priority'      => 10
     ));
-    
-    $wp_customize->add_setting('amity_flexslider_display_settings', array(
-        'sanitize_callback' => 'amity_sanitize_checkbox'
-    ));
-    
-    $wp_customize->add_control('amity_flexslider_display_settings', array(
-        'label'     => esc_html__('Enable FlexSlider', 'amity'),
-        'settings'  => 'amity_flexslider_display_settings',
-        'section'   => 'amity_theme_options_setup_section',
-        'type'      => 'checkbox'
-    ));
-    
-    $wp_customize->add_section('amity_general_layout_section', array(
-        'title'     => esc_html__('General Layout', 'amity'),
-        'description'   => '',
-        'priority'      => 10,
-        'capability'    => 'edit_theme_options',
-        'panel'         => 'amity_theme_options_setup_panel'
-    ));
-    
+
     $wp_customize->add_setting('amity_blog_layout_settings', array(
-        'default'           => 'sidebar-right',
-        'sanitize_callback' => 'amity_sanitize_layout',
-        'type'              => 'theme_mod',
-        'transport'         => 'postMessage'
+        'default'   => 'default',
+        'sanitize_callback'  => 'amity_sanitize_layout'
     ));
-    
+
     $wp_customize->add_control('amity_blog_layout_settings', array(
-        'label' => esc_html__('Sidebar Position', 'amity'),
-        'section'   => 'amity_general_layout_section',
+        'label' => esc_html__('Blog Layout', 'amity'),
+        'section'   => 'amity_blog_layout_options',
         'settings'  => 'amity_blog_layout_settings',
         'type'      => 'radio',
             'choices'   => array(
-                'sidebar-right' => esc_html__('Right Sidebar', 'amity'),
-                'sidebar-left'  => esc_html__('Left Sidebar', 'amity'),
-        )));
+                'default'           => esc_html__('Default (No Sidebar)', 'amity'),
+                'sidebar-left'      => esc_html__('Left Sidebar', 'amity'),
+                'sidebar-right'     => esc_html__('Right Sidebar', 'amity')
+    )));
+    
+    $wp_customize->add_section('amity_page_layout_options', array(
+        'title' => esc_html__('Page Layout', 'amity'),
+        'description'   => __('This section is mainly for the blogs, you can choose either to have the sidebar on the left or right or default.', 'amity'),
+        'panel'         => 'amity_general_layout',
+        'priority'      => 10
+    ));
+    
+    $wp_customize->add_setting('amity_page_layout_settings', array(
+        'default'   => 'default',
+        'sanitize_callback'  => 'amity_sanitize_layout'
+    ));
+
+    $wp_customize->add_control('amity_page_layout_settings', array(
+        'label' => esc_html__('Page Layout', 'amity'),
+        'section'   => 'amity_page_layout_options',
+        'settings'  => 'amity_page_layout_settings',
+        'type'      => 'radio',
+            'choices'   => array(
+                'default'           => esc_html__('Default (No Sidebar)', 'amity'),
+                'sidebar-left'      => esc_html__('Left Sidebar', 'amity'),
+                'sidebar-right'     => esc_html__('Right Sidebar', 'amity')
+    )));
+    
+    $wp_customize->add_section('amity_custom_layout_options', array(
+        'title' => esc_html__('Custom Layout', 'amity'),
+        'description'   => __('The Custom Layout is enabled by using the custom templates (Custom Sidebar).', 'amity'),
+        'panel'         => 'amity_general_layout',
+        'priority'      => 10
+    ));
+    
+    $wp_customize->add_setting('amity_custom_layout_settings', array(
+        'default'   => 'default',
+        'sanitize_callback'  => 'amity_sanitize_layout'
+    ));
+
+    $wp_customize->add_control('amity_custom_layout_settings', array(
+        'label' => esc_html__('Custom Layout', 'amity'),
+        'section'   => 'amity_custom_layout_options',
+        'settings'  => 'amity_custom_layout_settings',
+        'type'      => 'radio',
+            'choices'   => array(
+                'default'           => esc_html__('Default (No Sidebar)', 'amity'),
+                'sidebar-left'      => esc_html__('Left Sidebar', 'amity'),
+                'sidebar-right'     => esc_html__('Right Sidebar', 'amity')
+    )));
 }
-add_action('customize_register', 'amity_customizer_register_setup');
+add_action('customize_register', 'amity_customize_register_setup');
 
 /*
 ================================================================================================
-2.0 - Theme Customization Validations
+ 2.0 - Customize Register (Validation)
 ================================================================================================
 */
 function amity_sanitize_checkbox($checked) {
@@ -91,8 +121,14 @@ function amity_sanitize_checkbox($checked) {
 }
 
 function amity_sanitize_layout($value) {
-    if (!in_array($value, array('sidebar-right', 'sidebar-left'))) {
-        $value = 'sidebar-right';
+    if (!in_array($value, array('default', 'sidebar-left', 'sidebar-right'))) {
+        $value = 'default';
     }
     return $value;
 }
+
+/*
+================================================================================================
+ 3.0 - Customize Register (Preview)
+================================================================================================
+*/

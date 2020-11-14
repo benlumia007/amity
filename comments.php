@@ -9,7 +9,7 @@ display the comments for the theme.
 @package        Amity WordPress Theme
 @copyright      Copyright (C) 2016. Benjamin Lu
 @license        GNU General Public License v2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
-@author         Benjamin Lu (http://ninjablume.com/contact/
+@author         Benjamin Lu (https://www.luminathemes.com/)
 ================================================================================================
 */
 ?>
@@ -19,17 +19,17 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comment-area cf">
+<div id="comments" class="comments-area">
 
 <?php // You can start editing here -- including this comment! ?>
 
 <?php if ( have_comments() ) : ?>
-    <h1 class="comment-title">
-        <?php
-            printf( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'amity' ),
-            number_format_i18n( get_comments_number() ));
-        ?>
-    </h1>
+    <h2 class="comments-title">
+            <?php
+                    printf( _nx( 'One Comment', '%1$s Comments', get_comments_number(), 'comments title', 'amity' ),
+                            number_format_i18n( get_comments_number() ));
+            ?>
+    </h2>
 
     <ol class="comment-list">
             <?php
@@ -40,7 +40,6 @@ if ( post_password_required() ) {
                     ) );
             ?>
     </ol><!-- .comment-list -->
-
 
     <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
     <nav id="comment-nav-below" class="comment-navigation cf" role="navigation">
